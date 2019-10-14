@@ -36,6 +36,5 @@ public class CSVFileReaderTest {
 
     verify(processor).call(anyMap());
 
-
   }
 }

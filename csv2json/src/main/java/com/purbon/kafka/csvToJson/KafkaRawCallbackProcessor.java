@@ -11,9 +11,13 @@ public class KafkaRawCallbackProcessor implements RawCallbackProcessor, AutoClos
   private final ObjectMapper mapper;
 
   public KafkaRawCallbackProcessor(String topic) {
-    this.producer = new AppKafkaProducer();
-    this.mapper = new ObjectMapper();
+    this(topic, new AppKafkaProducer());
+  }
+
+  public KafkaRawCallbackProcessor(String topic, AppKafkaProducer producer) {
     this.topic = topic;
+    this.producer = producer;
+    this.mapper = new ObjectMapper();
   }
 
   @Override
