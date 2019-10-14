@@ -7,7 +7,15 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 public class AppKafkaProducer {
 
-  private KafkaProducer<String, String> producer = new KafkaProducer<>(configure());
+  private KafkaProducer<String, String> producer;
+
+  public AppKafkaProducer() {
+    producer = new KafkaProducer<>(configure());
+  }
+
+  public AppKafkaProducer(Properties config) {
+    producer = new KafkaProducer<>(config);
+  }
 
   private Properties configure() {
     Properties props = new Properties();
